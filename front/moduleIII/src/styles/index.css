@@ -1,0 +1,46 @@
+.navbar {
+  --bs-navbar-padding-x: none;
+}
+
+.container-fluid {
+  background-color: #0991f4;
+  height: 70px;
+}
+
+.navbar-brand {
+  margin: 70px;
+  width: 200px;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  letter-spacing: 1px;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.726);
+  background-color: rgb(31, 31, 31);
+}
+
+.navbar-brand:hover {
+  color: white;
+}
+
+.navbar-collapse {
+  margin: 150px;
+}
+
+.nav-link {
+  color: white;
+  margin: 15px;
+}
+.navbar-nav {
+  width: 500px;
+}
+
+.nav-link:hover {
+  font-weight: bold;
+  font-size: 16.5px;
+}
+
+.btn-primary {
+  padding: 15px 20px;
+  box-shadow: rgba(0, 0, 0, 0.603) 0px 4px 10px;
+}

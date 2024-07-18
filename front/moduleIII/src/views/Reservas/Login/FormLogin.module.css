@@ -1,0 +1,24 @@
+.formRegisterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.formRegister {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 433px;
+  padding: 20px;
+}
+
+label {
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+}
+
+input {
+  margin-bottom: 10px;
+}

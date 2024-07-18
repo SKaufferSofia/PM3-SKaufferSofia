@@ -1,0 +1,19 @@
+.container {
+  padding: 150px;
+  margin-top: 45px;
+}
+
+.title {
+  width: 465px;
+  color: white;
+  font-size: 53px;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+.subtitle {
+  width: 658px;
+  color: white;
+  font-size: 23px;
+  line-height: 1.3;
+}

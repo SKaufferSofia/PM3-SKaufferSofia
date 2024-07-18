@@ -1,0 +1,34 @@
+.containerIcon {
+  background-color: #1269a7;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.icono {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Hace que los bordes sean redondos, formando un círculo */
+  overflow: hidden; /* Oculta las partes de la imagen que sobresalen del contenedor circular */
+  position: relative; /* Para contener la imagen posicionada absolutamente */
+}
+
+.icono img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra todo el contenedor circular */
+  position: absolute; /* Permite posicionar y transformar la imagen dentro del contenedor */
+  top: 50%; /* Centra la imagen verticalmente */
+  left: 50%; /* Centra la imagen horizontalmente */
+  transform: translate(-50%, -50%) scale(1.2); /* Centra la imagen dentro del contenedor */
+}
+
+.logoOut {
+  width: 28px;
+  height: 28px;
+  margin: 12px;
+  cursor: pointer;
+}
