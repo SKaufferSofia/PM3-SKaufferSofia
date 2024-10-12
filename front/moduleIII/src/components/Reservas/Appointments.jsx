@@ -3,6 +3,7 @@ import swat from "sweetalert";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { updateAppointmentStatus } from "../../redux/reducer";
+import { NEXT_PUBLIC_API_URL } from "../../lib/server/env";
 
 const Appointment = ({ appointment: { id, date, time, status, sports } }) => {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const Appointment = ({ appointment: { id, date, time, status, sports } }) => {
             closeOnClickOutside: false,
           });
           const response = await axios.put(
-            `http://localhost:4000/appointments/cancel/${id}`
+            `${NEXT_PUBLIC_API_URL}/appointments/cancel/${id}`
           );
           if (response.status === 200) {
             dispatch(updateAppointmentStatus({ id, status: "Cancelled" }));

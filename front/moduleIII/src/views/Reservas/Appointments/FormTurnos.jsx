@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { validateAppointment } from "../../../helpers/validate";
 import { addAppointments } from "../../../redux/reducer";
 import { useDispatch } from "react-redux";
+import { NEXT_PUBLIC_API_URL } from "../../../lib/server/env";
 
 const FormTurnos = ({ sports }) => {
   const user = useSelector((state) => state.user);
@@ -58,7 +59,7 @@ const FormTurnos = ({ sports }) => {
       });
 
       const response = await axios.post(
-        "http://localhost:4000/appointments/schedule",
+        `${NEXT_PUBLIC_API_URL}/appointments/schedule`,
         transFormAppointments
       );
 

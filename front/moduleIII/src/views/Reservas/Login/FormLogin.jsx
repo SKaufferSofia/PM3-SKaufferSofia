@@ -6,6 +6,7 @@ import { validateLogin } from "../../../helpers/validate";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import style from "./FormLogin.module.css";
+import { NEXT_PUBLIC_API_URL } from "../../../lib/server/env";
 
 const FormLogin = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const FormLogin = () => {
   const funcionLogin = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/users/login",
+        `${NEXT_PUBLIC_API_URL}/users/login`,
         formLogin
       );
       localStorage.setItem("userId", response.data.user.id);

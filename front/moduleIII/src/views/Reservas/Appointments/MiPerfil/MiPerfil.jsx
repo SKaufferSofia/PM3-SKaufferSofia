@@ -23,7 +23,7 @@ const MiPerfil = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:4000/users/${userId}`
+          `${NEXT_PUBLIC_API_URL}/users/${userId}`
         );
         dispatch(allUser(response.data.user));
       } catch (error) {
