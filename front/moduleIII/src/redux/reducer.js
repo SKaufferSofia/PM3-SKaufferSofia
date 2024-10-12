@@ -11,8 +11,6 @@ const initialState = {
   },
 };
 
-console.log("hola");
-
 export const todoSlice = createSlice({
   name: "todo",
   initialState,
