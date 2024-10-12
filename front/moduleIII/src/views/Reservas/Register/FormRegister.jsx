@@ -4,7 +4,6 @@ import { useState } from "react";
 import { validate } from "../../../helpers/validate";
 import { useNavigate } from "react-router-dom";
 import style from "./FormRegister.module.css";
-import { API_URL } from "../../../server/env";
 
 const FormRegister = () => {
   const [formData, setFormData] = useState({
@@ -56,7 +55,7 @@ const FormRegister = () => {
 
     try {
       const response = await axios.post(
-        `${API_URL}/users/register`,
+        "http://localhost:4000/users/register",
         formDataToSend,
         {
           headers: {
