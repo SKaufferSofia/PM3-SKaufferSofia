@@ -8,60 +8,25 @@ import CredentialDto from "../dtos/CredentialDto";
 import UserDto from "../dtos/UserDto";
 import { User } from "../entities/User";
 import { validateCredentialsService } from "../server/CredentialsService";
-import cloudinary from "cloudinary";
 
 export const getAllUsers = async (req: Request, res: Response) => {
   const users: User[] = await getUsersService();
   res.status(200).json({ mesage: "todos los usuarios", users });
 };
 
-// export const createUser = async (req: Request, res: Response) => {
-//   const newUser: UserDto = req.body;
-//   const newCredential: CredentialDto = req.body;
-//   const photoPath = req.file
-//     ? `http://localhost:4000/uploads/${req.file.filename}`
-//     : null;
-//   try {
-//     await createUserService({ ...newUser, photo: photoPath }, newCredential);
-//     res.status(201).json({ mesage: "usuario fue creado" });
-//   } catch (error) {
-//     res
-//       .status(400)
-//       .json({ mesage: "Error al crear Usuario. El usuario ya existe" });
-//   }
-// };
 export const createUser = async (req: Request, res: Response) => {
   const newUser: UserDto = req.body;
   const newCredential: CredentialDto = req.body;
-  let photoUrl: string | null = null;
-
+  const photoPath = req.file
+    ? `http://localhost:4000/uploads/${req.file.filename}`
+    : null;
   try {
-    // Si hay un archivo subido, lo subimos a Cloudinary
-    if (req.file) {
-      const result = await new Promise<{ url: string }>((resolve, reject) => {
-        const stream = cloudinary.v2.uploader.upload_stream(
-          { folder: "polideportivo" }, // Puedes cambiar el nombre de la carpeta
-          (error, result) => {
-            if (error) {
-              reject(error);
-            } else {
-              resolve(result);
-            }
-          }
-        );
-        stream.end(req.file.buffer);
-      });
-
-      photoUrl = result.url;
-    }
-
-    // Crear el usuario con la URL de la foto de Cloudinary
-    await createUserService({ ...newUser, photo: photoUrl }, newCredential);
-    res.status(201).json({ message: "Usuario fue creado" });
+    await createUserService({ ...newUser, photo: photoPath }, newCredential);
+    res.status(201).json({ mesage: "usuario fue creado" });
   } catch (error) {
     res
       .status(400)
-      .json({ message: "Error al crear Usuario. El usuario ya existe" });
+      .json({ mesage: "Error al crear Usuario. El usuario ya existe" });
   }
 };
 
