@@ -23,7 +23,7 @@ const MiPerfil = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:4000/users/${userId}`
+          `https://pm3-skauffersofia-production.up.railway.app/users/${userId}`
         );
         dispatch(allUser(response.data.user));
       } catch (error) {

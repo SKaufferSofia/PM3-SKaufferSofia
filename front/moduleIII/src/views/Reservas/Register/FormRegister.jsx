@@ -55,7 +55,7 @@ const FormRegister = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/users/register",
+        "https://pm3-skauffersofia-production.up.railway.app/users/register",
         formDataToSend,
         {
           headers: {

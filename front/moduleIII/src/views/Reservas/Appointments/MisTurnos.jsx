@@ -16,7 +16,9 @@ const MisTurnos = () => {
     const fetchData = async () => {
       if (!user) return;
       try {
-        const response = await axios.get(`http://localhost:4000/users/${user}`);
+        const response = await axios.get(
+          `https://pm3-skauffersofia-production.up.railway.app/users/${user}`
+        );
         dispatch(allAppointments(response.data.user.appointments));
         dispatch(allUser(response.data.user));
       } catch (error) {

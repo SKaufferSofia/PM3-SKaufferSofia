@@ -19,7 +19,7 @@ export const getAllUsers = async (req: Request, res: Response) => {
 //   const newUser: UserDto = req.body;
 //   const newCredential: CredentialDto = req.body;
 //   const photoPath = req.file
-//     ? `http://localhost:4000/uploads/${req.file.filename}`
+//     ? `https://pm3-skauffersofia-production.up.railway.app/uploads/${req.file.filename}`
 //     : null;
 //   try {
 //     await createUserService({ ...newUser, photo: photoPath }, newCredential);

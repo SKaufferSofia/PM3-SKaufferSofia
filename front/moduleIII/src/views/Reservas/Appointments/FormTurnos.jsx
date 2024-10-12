@@ -58,7 +58,7 @@ const FormTurnos = ({ sports }) => {
       });
 
       const response = await axios.post(
-        "http://localhost:4000/appointments/schedule",
+        "https://pm3-skauffersofia-production.up.railway.app/appointments/schedule",
         transFormAppointments
       );
 

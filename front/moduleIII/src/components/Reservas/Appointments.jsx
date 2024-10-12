@@ -36,7 +36,7 @@ const Appointment = ({ appointment: { id, date, time, status, sports } }) => {
             closeOnClickOutside: false,
           });
           const response = await axios.put(
-            `http://localhost:4000/appointments/cancel/${id}`
+            `https://pm3-skauffersofia-production.up.railway.app/appointments/cancel/${id}`
           );
           if (response.status === 200) {
             dispatch(updateAppointmentStatus({ id, status: "Cancelled" }));
