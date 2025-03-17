@@ -16,5 +16,3 @@ const usuario = {
   },
   role: UserRole.ADMIN,
 };
-
-console.log(usuario);

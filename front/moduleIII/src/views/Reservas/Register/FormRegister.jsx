@@ -64,16 +64,11 @@ const FormRegister = () => {
         closeOnEsc: false,
         closeOnClickOutside: false,
       });
-      const response = await axios.post(
-        `${API_URL}/users/register`,
-        formDataToSend,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      console.log(response.data);
+      await axios.post(`${API_URL}/users/register`, formDataToSend, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       swat({
         title: "Usuario creado con exito",
         icon: "success",

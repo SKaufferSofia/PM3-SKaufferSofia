@@ -62,8 +62,6 @@ const FormTurnos = ({ sports }) => {
         `${API_URL}/appointments/schedule`,
         transFormAppointments
       );
-
-      console.log(response.data.newAppointment);
       dispatch(addAppointments(response.data.newAppointment));
       swal({
         title: "Reserva creada con exito",
