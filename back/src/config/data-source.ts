@@ -17,6 +17,7 @@ export const AppDataSource = new DataSource({
   entities: [User, Credentials, Appointment],
   subscribers: [],
   migrations: [],
+  ssl: { rejectUnauthorized: false },
 });
 
 export const UserModel = AppDataSource.getRepository(User);
