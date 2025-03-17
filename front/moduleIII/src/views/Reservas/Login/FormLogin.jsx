@@ -6,6 +6,7 @@ import { validateLogin } from "../../../helpers/validate";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import style from "./FormLogin.module.css";
+import { API_URL } from "../../../server/env";
 
 const FormLogin = () => {
   const navigate = useNavigate();
@@ -18,10 +19,15 @@ const FormLogin = () => {
 
   const funcionLogin = async () => {
     try {
-      const response = await axios.post(
-        "https://pm3-skauffersofia-production.up.railway.app/users/login",
-        formLogin
-      );
+      swal({
+        title: "Cargando...",
+        text: "Por favor espera.",
+        icon: "info",
+        buttons: false,
+        closeOnEsc: false,
+        closeOnClickOutside: false,
+      });
+      const response = await axios.post(`${API_URL}/users/login`, formLogin);
       localStorage.setItem("userId", response.data.user.id);
       dispatch(addUser(response.data.user.id));
       swal({

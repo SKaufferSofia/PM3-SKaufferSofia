@@ -6,6 +6,7 @@ import axios from "axios";
 import style from "./MisTurnos.module.css";
 import DeportesContainer from "../../../components/Reservas/DeportesContainer";
 import NavBarMisTurnos from "../../../components/Navbar/NavbarMisTurnos";
+import { API_URL } from "../../../server/env";
 
 const MisTurnos = () => {
   const user = useSelector((state) => state.user);
@@ -16,9 +17,7 @@ const MisTurnos = () => {
     const fetchData = async () => {
       if (!user) return;
       try {
-        const response = await axios.get(
-          `https://pm3-skauffersofia-production.up.railway.app/users/${user}`
-        );
+        const response = await axios.get(`${API_URL}/users/${user}`);
         dispatch(allAppointments(response.data.user.appointments));
         dispatch(allUser(response.data.user));
       } catch (error) {
@@ -42,12 +41,11 @@ const MisTurnos = () => {
         </div>
         <div>
           {appointments.length === 0 && (
-            <p
-              className="poppins-bold"
-              style={{ margin: "50px", height: "350px" }}
-            >
-              No hay reservas
-            </p>
+            <div style={{ margin: "50px", height: "350px" }}>
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
           )}
           <AppointmentsList appointments={appointments} />
         </div>

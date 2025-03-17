@@ -1,9 +1,11 @@
+import swal from "sweetalert";
 import swat from "sweetalert";
 import axios from "axios";
 import { useState } from "react";
 import { validate } from "../../../helpers/validate";
 import { useNavigate } from "react-router-dom";
 import style from "./FormRegister.module.css";
+import { API_URL } from "../../../server/env";
 
 const FormRegister = () => {
   const [formData, setFormData] = useState({
@@ -54,8 +56,16 @@ const FormRegister = () => {
     formDataToSend.append("photo", formData.photo); // Añadir el archivo
 
     try {
+      swal({
+        title: "Cargando...",
+        text: "Por favor espera.",
+        icon: "info",
+        buttons: false,
+        closeOnEsc: false,
+        closeOnClickOutside: false,
+      });
       const response = await axios.post(
-        "https://pm3-skauffersofia-production.up.railway.app/users/register",
+        `${API_URL}/users/register`,
         formDataToSend,
         {
           headers: {

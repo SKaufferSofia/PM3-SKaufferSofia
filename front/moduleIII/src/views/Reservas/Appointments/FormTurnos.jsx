@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { validateAppointment } from "../../../helpers/validate";
 import { addAppointments } from "../../../redux/reducer";
 import { useDispatch } from "react-redux";
+import { API_URL } from "../../../server/env";
 
 const FormTurnos = ({ sports }) => {
   const user = useSelector((state) => state.user);
@@ -58,7 +59,7 @@ const FormTurnos = ({ sports }) => {
       });
 
       const response = await axios.post(
-        "https://pm3-skauffersofia-production.up.railway.app/appointments/schedule",
+        `${API_URL}/appointments/schedule`,
         transFormAppointments
       );
 

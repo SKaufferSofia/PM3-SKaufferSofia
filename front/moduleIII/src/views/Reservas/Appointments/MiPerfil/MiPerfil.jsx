@@ -4,6 +4,7 @@ import styles from "./MiPerfil.module.css";
 import { useEffect } from "react";
 import NavBarMisTurnos from "../../../../components/Navbar/NavbarMisTurnos";
 import { addUser, allUser } from "../../../../redux/reducer";
+import { API_URL } from "../../../../server/env";
 const MiPerfil = () => {
   const user = useSelector((state) => state.user);
   const userData = useSelector((state) => state.userData);
@@ -22,9 +23,7 @@ const MiPerfil = () => {
       }
 
       try {
-        const response = await axios.get(
-          `https://pm3-skauffersofia-production.up.railway.app/users/${userId}`
-        );
+        const response = await axios.get(`${API_URL}/users/${userId}`);
         dispatch(allUser(response.data.user));
       } catch (error) {
         console.error("Error fetching data:", error);
